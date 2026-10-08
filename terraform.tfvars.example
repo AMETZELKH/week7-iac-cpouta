@@ -1,0 +1,5 @@
+project_network  = "project_XXXXXXXX"
+ssh_allowed_cidr = "A.PUBLIC.IP/32"
+student_name     = "A Name"
+
+page_message = "Placeholder message"

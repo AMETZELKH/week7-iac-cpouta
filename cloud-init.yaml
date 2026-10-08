@@ -1,0 +1,66 @@
+#cloud-config
+
+package_update: true
+
+packages:
+  - apache2
+
+write_files:
+  - path: /var/www/html/index.html
+    owner: root:root
+    permissions: "0644"
+    content: |
+      <!DOCTYPE html>
+      <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Week 7 - OpenTofu</title>
+
+        <style>
+          body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 80px 20px;
+            text-align: center;
+          }
+
+          .container {
+            max-width: 700px;
+            margin: auto;
+            background: white;
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+          }
+
+          h1 {
+            color: #333;
+          }
+
+          p {
+            font-size: 20px;
+            color: #555;
+          }
+        </style>
+      </head>
+
+      <body>
+        <div class="container">
+          <h1>Week 7: OpenTofu</h1>
+
+          <p>
+            Student: ${student_name}
+          </p>
+
+          <p>
+            ${page_message}
+          </p>
+        </div>
+      </body>
+      </html>
+
+runcmd:
+  - systemctl enable apache2
+  - systemctl start apache2
